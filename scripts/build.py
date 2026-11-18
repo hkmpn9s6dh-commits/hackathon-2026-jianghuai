@@ -33,14 +33,23 @@ def font(kind, size):
     return ImageFont.truetype(os.path.join(ROOT, S.FONTS[kind]), size)
 
 
-def cover(img, w, h, vpos, bottom_guard=0.06):
-    """等比放大到铺满，再按 vpos 取垂直位置（0=留上，1=留下）。
+def dewatermark(img, box=(0.74, 0.925, 1.0, 1.0), k=15):
+    """抹掉源图右下角文生图工具的水印。
 
-    bottom_guard：先把源图最下面的一截切掉——文生图工具的水印就在那里。
-    切 6% 之后水印一定在画外，不等于"靠幸运"。
+    不裁掉——那一角是画（西涧的船、丰乐的溪口都在附近）。做法是把水印框里
+    换成中值滤波后的颜色：水印是细白字，压在深色水上，中值一过就没了，
+    而这一块成品里又在 90% 墨池下，看不出补过。
     """
     iw, ih = img.size
-    img = img.crop((0, 0, iw, int(ih * (1 - bottom_guard))))
+    x0, y0, x1, y1 = int(box[0] * iw), int(box[1] * ih), int(box[2] * iw), int(box[3] * ih)
+    patch = img.crop((x0, y0, x1, y1)).filter(ImageFilter.MedianFilter(size=k))
+    img = img.copy()
+    img.paste(patch, (x0, y0))
+    return img
+
+
+def cover(img, w, h, vpos):
+    """等比放大到铺满，再按 vpos 取垂直位置（0=留上，1=留下）。"""
     iw, ih = img.size
     s = max(w / iw, h / ih)
     nw, nh = int(round(iw * s)), int(round(ih * s))
@@ -56,6 +65,33 @@ def pool_color(img):
     band = a[int(S.H * 0.94):, :, :]
     med = np.median(band.reshape(-1, 3), axis=0)
     return tuple(int(v * 0.55) for v in med)
+
+
+def clarity(img, k=0.25, radius=2.0):
+    """只对水线以上做一点微对比：雾不是"死灰"，绢纹与树影要立起来。
+
+    做法是反锐化掩膜（unsharp），k 很小，不制造光晕；水线以下的字区一点不动。
+    """
+    a = np.asarray(img).astype(np.float32)
+    blur = np.asarray(img.filter(ImageFilter.GaussianBlur(radius))).astype(np.float32)
+    sharp = a + k * (a - blur)
+    top = sharp[:S.WATERLINE]
+    out = a.copy()
+    out[:S.WATERLINE] = top
+    return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
+
+
+def lift_subject(img, focus):
+    """给题眼留一口气：主体处一层椭圆形的柔和提亮（不改构图、不改颜色关系）。"""
+    if not focus:
+        return img
+    cx, cy, rx, ry, amt = focus
+    a = np.asarray(img).astype(np.float32)
+    yy, xx = np.mgrid[0:S.H, 0:S.W].astype(np.float32)
+    d = ((xx - cx * S.W) / (rx * S.W)) ** 2 + ((yy - cy * S.H) / (ry * S.H)) ** 2
+    w = np.clip(1 - d, 0, 1) ** 1.6
+    gain = (1 + amt * w)[:, :, None]
+    return Image.fromarray(np.clip(a * gain, 0, 255).astype(np.uint8))
 
 
 def draw_pool(img, color):
@@ -202,9 +238,11 @@ def to_svg(p, glyphs, marks, bg_jpg):
 def build_one(p, write_svg=True):
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(BUILD, exist_ok=True)
-    src = Image.open(os.path.join(ROOT, p["plate"])).convert("RGB")
+    src = dewatermark(Image.open(os.path.join(ROOT, p["plate"])).convert("RGB"))
     img = cover(src, S.W, S.H, p["vpos"])
+    img = clarity(img, k=p.get("clarity", 0.25))
     img = draw_pool(img, pool_color(img))
+    img = lift_subject(img, p.get("focus"))
     img = draw_waterline(img, p["accent"])
     img.save(os.path.join(BUILD, "bg-%s.png" % p["key"]), dpi=(S.DPI, S.DPI))
 
