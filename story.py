@@ -59,7 +59,7 @@ POSTERS = [
         plate="assets/plates/jian.png",
         vpos=0.55,
         clarity=0.38,
-        focus=(0.24, 0.835, 0.28, 0.135, 1.05),
+        focus=(0.235, 0.845, 0.26, 0.105, 1.75),
         ink=(243, 246, 246), ink_dim=(214, 222, 224), top_ink=(226, 232, 234),
         accent=(170, 58, 44),
     ),
