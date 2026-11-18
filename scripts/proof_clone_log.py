@@ -14,7 +14,7 @@ head = (
     "# 全新 clone 从零构建的完整日志\n"
     "# 来源：git clone --depth 1 https://github.com/hkmpn9s6dh-commits/hackathon-2026-jianghuai.git\n"
     "# 命令：bash verify.sh\n"
-    "# 结果：113 条断言 113 过 / 0 败；构建三张 JPG + 三张 SVG + 证据，全程 26.4 s\n"
+    "# 结果：113 条断言 113 过 / 0 败；从依赖检查一路跑到证据（三张 JPG + 三张 SVG + 联系表）\n"
     "# 机器：Windows / Python 3.8.8 / Pillow 10.4 / fontTools 4.57\n\n"
 )
 open(DST, "w", encoding="utf-8", newline="\n").write(head + src)

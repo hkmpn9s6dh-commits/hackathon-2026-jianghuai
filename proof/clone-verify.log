@@ -1,7 +1,7 @@
 # 全新 clone 从零构建的完整日志
 # 来源：git clone --depth 1 https://github.com/hkmpn9s6dh-commits/hackathon-2026-jianghuai.git
 # 命令：bash verify.sh
-# 结果：113 条断言 113 过 / 0 败；构建三张 JPG + 三张 SVG + 证据，全程 26.4 s
+# 结果：113 条断言 113 过 / 0 败；从依赖检查一路跑到证据（三张 JPG + 三张 SVG + 联系表）
 # 机器：Windows / Python 3.8.8 / Pillow 10.4 / fontTools 4.57
 
 == 0. 依赖 ==
@@ -14,28 +14,28 @@
 == 2. 版式表与单源是否一致 ==
 PASS 分镜表与 story.py 一致
 == 3. 构建 ==
-  shan  jianghuai-shan.jpg  124 字  0 句读  2.06 MB
-  jian  jianghuai-jian.jpg  104 字  0 句读  1.96 MB
-  tian  jianghuai-tian.jpg  131 字  1 句读  2.66 MB
+  shan  jianghuai-shan.jpg  124 字  0 句读  2.21 MB
+  jian  jianghuai-jian.jpg  104 字  0 句读  2.13 MB
+  tian  jianghuai-tian.jpg  131 字  1 句读  2.82 MB
 == 4. 闸 C 逐条 ==
 == 1. 交件规格 ==
   PASS  AC-1 成片存在 shan                                 shan
   PASS  AC-2 尺寸 2480×3508 shan                         2480x3508
   PASS  AC-3 300dpi shan                               300/300
   PASS  AC-4 RGB 无 alpha shan                          RGB
-  PASS  AC-5 单张 ≤ 12MB shan                            2.06 MB
+  PASS  AC-5 单张 ≤ 12MB shan                            2.21 MB
   PASS  AC-6 baseline JPEG shan                        progressive=None
   PASS  AC-1 成片存在 jian                                 jian
   PASS  AC-2 尺寸 2480×3508 jian                         2480x3508
   PASS  AC-3 300dpi jian                               300/300
   PASS  AC-4 RGB 无 alpha jian                          RGB
-  PASS  AC-5 单张 ≤ 12MB jian                            1.96 MB
+  PASS  AC-5 单张 ≤ 12MB jian                            2.13 MB
   PASS  AC-6 baseline JPEG jian                        progressive=None
   PASS  AC-1 成片存在 tian                                 tian
   PASS  AC-2 尺寸 2480×3508 tian                         2480x3508
   PASS  AC-3 300dpi tian                               300/300
   PASS  AC-4 RGB 无 alpha tian                          RGB
-  PASS  AC-5 单张 ≤ 12MB tian                            2.66 MB
+  PASS  AC-5 单张 ≤ 12MB tian                            2.82 MB
   PASS  AC-6 baseline JPEG tian                        progressive=None
 == 2. 系列一致（同一条水线、同一套字） ==
   PASS  AC-7 水线落在 2245±4 shan                          y=2242
@@ -93,46 +93,46 @@ PASS 分镜表与 story.py 一致
   PASS  AC-25 页脚三行行距 ≥48 tian                          [3350, 3404, 3458]
   PASS  AC-26 引文不越页脚线 tian                             y=3256
 == 5. 可读性（逐字对真背景量对比度） ==
-  PASS  AC-27 引文逐字对比度 ≥4.5 shan                        最差 12.0:1（闻）
-  PASS  AC-28 页脚对比度 ≥4.5 shan                          16.2:1
-  PASS  AC-27 引文逐字对比度 ≥4.5 jian                        最差 11.8:1（7）
-  PASS  AC-28 页脚对比度 ≥4.5 jian                          15.2:1
-  PASS  AC-27 引文逐字对比度 ≥4.5 tian                        最差 12.7:1（乐）
-  PASS  AC-28 页脚对比度 ≥4.5 tian                          16.2:1
+  PASS  AC-27 引文逐字对比度 ≥4.5 shan                        最差 11.4:1（渐）
+  PASS  AC-28 页脚对比度 ≥4.5 shan                          16.1:1
+  PASS  AC-27 引文逐字对比度 ≥4.5 jian                        最差 10.9:1（涧）
+  PASS  AC-28 页脚对比度 ≥4.5 jian                          15.3:1
+  PASS  AC-27 引文逐字对比度 ≥4.5 tian                        最差 13.1:1（修）
+  PASS  AC-28 页脚对比度 ≥4.5 tian                          16.7:1
 == 6. 画面（墨池、水线、水印、三张互不相同） ==
-  PASS  AC-29 墨池平均亮度 ≤110 shan                         42.8
-  PASS  AC-30 水线上下有明度落差 shan                           73.2→38.7
-  PASS  AC-31 主视觉不是纯色 shan                             std=50.1
-  PASS  AC-32 右下角无工具水印残留 shan                          std=1.4 mean=25.1
-  PASS  AC-29 墨池平均亮度 ≤110 jian                         44.3
-  PASS  AC-30 水线上下有明度落差 jian                           74.7→41.8
-  PASS  AC-31 主视觉不是纯色 jian                             std=45.5
-  PASS  AC-32 右下角无工具水印残留 jian                          std=1.2 mean=30.7
-  PASS  AC-29 墨池平均亮度 ≤110 tian                         36.2
-  PASS  AC-30 水线上下有明度落差 tian                           47.5→29.9
-  PASS  AC-31 主视觉不是纯色 tian                             std=36.6
-  PASS  AC-32 右下角无工具水印残留 tian                          std=7.6 mean=22.2
-  PASS  AC-33 三张墨池浓度随图而变                               36.2~44.3
-  PASS  AC-34 三张互不相同                                   d=37.7/41.7
+  PASS  AC-29 墨池平均亮度 ≤110 shan                         42.6
+  PASS  AC-30 水线上下有明度落差 shan                           71.8→37.5
+  PASS  AC-31 主视觉不是纯色 shan                             std=51.8
+  PASS  AC-32 右下角无工具水印残留 shan                          std=0.9 mean=24.9
+  PASS  AC-29 墨池平均亮度 ≤110 jian                         47.2
+  PASS  AC-30 水线上下有明度落差 jian                           68.6→41.5
+  PASS  AC-31 主视觉不是纯色 jian                             std=45.2
+  PASS  AC-32 右下角无工具水印残留 jian                          std=1.5 mean=29.8
+  PASS  AC-29 墨池平均亮度 ≤110 tian                         34.0
+  PASS  AC-30 水线上下有明度落差 tian                           46.6→27.8
+  PASS  AC-31 主视觉不是纯色 tian                             std=37.6
+  PASS  AC-32 右下角无工具水印残留 tian                          std=4.8 mean=18.9
+  PASS  AC-33 三张墨池浓度随图而变                               34.0~47.2
+  PASS  AC-34 三张互不相同                                   d=38.9/41.8
 == 7. 工程源文件（分层 SVG） ==
   PASS  AC-35 源文件存在 shan                               jianghuai-shan.svg
   PASS  AC-36 SVG 字数与版式一致 shan                         126/126
   PASS  AC-37 SVG 里能读出完整引文 shan                        
   PASS  AC-38 SVG 内嵌两套字体 shan                          2
   PASS  AC-39 SVG 有层名（可编辑） shan                        
-  PASS  AC-40 SVG 内嵌底图 shan                            2.9 MB
+  PASS  AC-40 SVG 内嵌底图 shan                            3.1 MB
   PASS  AC-35 源文件存在 jian                               jianghuai-jian.svg
   PASS  AC-36 SVG 字数与版式一致 jian                         106/106
   PASS  AC-37 SVG 里能读出完整引文 jian                        
   PASS  AC-38 SVG 内嵌两套字体 jian                          2
   PASS  AC-39 SVG 有层名（可编辑） jian                        
-  PASS  AC-40 SVG 内嵌底图 jian                            2.8 MB
+  PASS  AC-40 SVG 内嵌底图 jian                            3.0 MB
   PASS  AC-35 源文件存在 tian                               jianghuai-tian.svg
   PASS  AC-36 SVG 字数与版式一致 tian                         133/133
   PASS  AC-37 SVG 里能读出完整引文 tian                        
   PASS  AC-38 SVG 内嵌两套字体 tian                          2
   PASS  AC-39 SVG 有层名（可编辑） tian                        
-  PASS  AC-40 SVG 内嵌底图 tian                            3.7 MB
+  PASS  AC-40 SVG 内嵌底图 tian                            3.9 MB
 == 8. 字体（随包、不缺字） ==
   PASS  AC-41 字体 serif 缺字=0                            缺 0 
   PASS  AC-42 字体许可随包 serif                             
@@ -146,7 +146,4 @@ PASS 分镜表与 story.py 一致
   联系表 → proof/contact-sheet.jpg
   量测报告 → proof/report.md
 全部通过。
-
-real	0m26.411s
-user	0m0.121s
-sys	0m0.153s
+EXIT=0
