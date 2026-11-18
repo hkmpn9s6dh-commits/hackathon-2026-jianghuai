@@ -1,0 +1,115 @@
+PASS  AC-1 成片存在 shan  shan
+PASS  AC-2 尺寸 2480×3508 shan  2480x3508
+PASS  AC-3 300dpi shan  300/300
+PASS  AC-4 RGB 无 alpha shan  RGB
+PASS  AC-5 单张 ≤ 12MB shan  2.06 MB
+PASS  AC-6 baseline JPEG shan  progressive=None
+PASS  AC-1 成片存在 jian  jian
+PASS  AC-2 尺寸 2480×3508 jian  2480x3508
+PASS  AC-3 300dpi jian  300/300
+PASS  AC-4 RGB 无 alpha jian  RGB
+PASS  AC-5 单张 ≤ 12MB jian  1.96 MB
+PASS  AC-6 baseline JPEG jian  progressive=None
+PASS  AC-1 成片存在 tian  tian
+PASS  AC-2 尺寸 2480×3508 tian  2480x3508
+PASS  AC-3 300dpi tian  300/300
+PASS  AC-4 RGB 无 alpha tian  RGB
+PASS  AC-5 单张 ≤ 12MB tian  2.66 MB
+PASS  AC-6 baseline JPEG tian  progressive=None
+PASS  AC-7 水线落在 2245±4 shan  y=2242
+PASS  AC-8 水线横贯全幅 shan  2480 px
+PASS  AC-7 水线落在 2245±4 jian  y=2242
+PASS  AC-8 水线横贯全幅 jian  2480 px
+PASS  AC-7 水线落在 2245±4 tian  y=2242
+PASS  AC-8 水线横贯全幅 tian  2480 px
+PASS  AC-9 三张水线同一条（逐像素）  {'shan': 2242, 'jian': 2242, 'tian': 2242}
+PASS  AC-10 三张引文字号相同  {'shan': 96, 'jian': 96, 'tian': 96}
+PASS  AC-11 三张落款字号相同  340
+PASS  AC-12 三张印尺寸相同  {156}
+PASS  AC-13 引文与校勘原文一致 shan  
+PASS  AC-14 每列 ≤10 字 shan  9
+PASS  AC-15 没有列以句读开头（避头） shan  []
+PASS  AC-16 页脚有地标 shan  琅琊山 · 酿泉 · 醉
+PASS  AC-17 图上有 AI 生成标识 shan  
+PASS  AC-13 引文与校勘原文一致 jian  
+PASS  AC-14 每列 ≤10 字 jian  7
+PASS  AC-15 没有列以句读开头（避头） jian  []
+PASS  AC-16 页脚有地标 jian  滁州西涧 · 俗名上马河
+PASS  AC-17 图上有 AI 生成标识 jian  
+PASS  AC-13 引文与校勘原文一致 tian  
+PASS  AC-14 每列 ≤10 字 tian  9
+PASS  AC-15 没有列以句读开头（避头） tian  []
+PASS  AC-16 页脚有地标 tian  丰山 · 幽谷泉 · 丰
+PASS  AC-17 图上有 AI 生成标识 tian  
+PASS  AC-18 字不出左右安全区 shan  min=172 max=2346
+PASS  AC-19 字不出上下安全区 shan  min=2352 max=3458
+PASS  AC-20 引文列间距 ≥1.2 字 shan  155 px
+PASS  AC-21 落款不压引文 shan  
+PASS  AC-22 印不压页脚线 shan  y1=3270
+PASS  AC-23 印在落款之下 shan  3074→3114
+PASS  AC-24 印不压引文 shan  420<1010
+PASS  AC-25 页脚三行行距 ≥48 shan  [3350, 3404, 3458]
+PASS  AC-26 引文不越页脚线 shan  y=3256
+PASS  AC-18 字不出左右安全区 jian  min=172 max=2346
+PASS  AC-19 字不出上下安全区 jian  min=2352 max=3458
+PASS  AC-20 引文列间距 ≥1.2 字 jian  155 px
+PASS  AC-21 落款不压引文 jian  
+PASS  AC-22 印不压页脚线 jian  y1=3270
+PASS  AC-23 印在落款之下 jian  3074→3114
+PASS  AC-24 印不压引文 jian  420<1785
+PASS  AC-25 页脚三行行距 ≥48 jian  [3350, 3404, 3458]
+PASS  AC-26 引文不越页脚线 jian  y=3054
+PASS  AC-18 字不出左右安全区 tian  min=172 max=2346
+PASS  AC-19 字不出上下安全区 tian  min=2352 max=3458
+PASS  AC-20 引文列间距 ≥1.2 字 tian  155 px
+PASS  AC-21 落款不压引文 tian  
+PASS  AC-22 印不压页脚线 tian  y1=3270
+PASS  AC-23 印在落款之下 tian  3074→3114
+PASS  AC-24 印不压引文 tian  420<1165
+PASS  AC-25 页脚三行行距 ≥48 tian  [3350, 3404, 3458]
+PASS  AC-26 引文不越页脚线 tian  y=3256
+PASS  AC-27 引文逐字对比度 ≥4.5 shan  最差 12.0:1（闻）
+PASS  AC-28 页脚对比度 ≥4.5 shan  16.2:1
+PASS  AC-27 引文逐字对比度 ≥4.5 jian  最差 11.8:1（7）
+PASS  AC-28 页脚对比度 ≥4.5 jian  15.2:1
+PASS  AC-27 引文逐字对比度 ≥4.5 tian  最差 12.7:1（乐）
+PASS  AC-28 页脚对比度 ≥4.5 tian  16.2:1
+PASS  AC-29 墨池平均亮度 ≤110 shan  42.8
+PASS  AC-30 水线上下有明度落差 shan  73.2→38.7
+PASS  AC-31 主视觉不是纯色 shan  std=50.1
+PASS  AC-32 右下角无工具水印残留 shan  std=1.4 mean=25.1
+PASS  AC-29 墨池平均亮度 ≤110 jian  44.3
+PASS  AC-30 水线上下有明度落差 jian  74.7→41.8
+PASS  AC-31 主视觉不是纯色 jian  std=45.5
+PASS  AC-32 右下角无工具水印残留 jian  std=1.2 mean=30.7
+PASS  AC-29 墨池平均亮度 ≤110 tian  36.2
+PASS  AC-30 水线上下有明度落差 tian  47.5→29.9
+PASS  AC-31 主视觉不是纯色 tian  std=36.6
+PASS  AC-32 右下角无工具水印残留 tian  std=7.6 mean=22.2
+PASS  AC-33 三张墨池浓度随图而变  36.2~44.3
+PASS  AC-34 三张互不相同  d=37.7/41.7
+PASS  AC-35 源文件存在 shan  jianghuai-shan.svg
+PASS  AC-36 SVG 字数与版式一致 shan  126/126
+PASS  AC-37 SVG 里能读出完整引文 shan  
+PASS  AC-38 SVG 内嵌两套字体 shan  2
+PASS  AC-39 SVG 有层名（可编辑） shan  
+PASS  AC-40 SVG 内嵌底图 shan  3.0 MB
+PASS  AC-35 源文件存在 jian  jianghuai-jian.svg
+PASS  AC-36 SVG 字数与版式一致 jian  106/106
+PASS  AC-37 SVG 里能读出完整引文 jian  
+PASS  AC-38 SVG 内嵌两套字体 jian  2
+PASS  AC-39 SVG 有层名（可编辑） jian  
+PASS  AC-40 SVG 内嵌底图 jian  2.9 MB
+PASS  AC-35 源文件存在 tian  jianghuai-tian.svg
+PASS  AC-36 SVG 字数与版式一致 tian  133/133
+PASS  AC-37 SVG 里能读出完整引文 tian  
+PASS  AC-38 SVG 内嵌两套字体 tian  2
+PASS  AC-39 SVG 有层名（可编辑） tian  
+PASS  AC-40 SVG 内嵌底图 tian  3.8 MB
+PASS  AC-41 字体 serif 缺字=0  缺 0 
+PASS  AC-42 字体许可随包 serif  
+PASS  AC-41 字体 brush 缺字=0  缺 0 
+PASS  AC-42 字体许可随包 brush  
+PASS  AC-43 docs/03-LAYOUT.md 与 story.py 一致  PASS 分镜表与 story.py 一致
+
+合计：113 过 / 0 败

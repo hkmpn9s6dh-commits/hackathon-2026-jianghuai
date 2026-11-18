@@ -1,0 +1,6 @@
+# 无损母版与中间产物（重新生成即可）
+out/*.png
+build/
+__pycache__/
+*.pyc
+.tmp/
