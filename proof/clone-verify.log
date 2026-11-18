@@ -95,7 +95,7 @@ PASS 分镜表与 story.py 一致
 == 5. 可读性（逐字对真背景量对比度） ==
   PASS  AC-27 引文逐字对比度 ≥4.5 shan                        最差 11.4:1（渐）
   PASS  AC-28 页脚对比度 ≥4.5 shan                          16.1:1
-  PASS  AC-27 引文逐字对比度 ≥4.5 jian                        最差 10.9:1（涧）
+  PASS  AC-27 引文逐字对比度 ≥4.5 jian                        最差 9.1:1（涧）
   PASS  AC-28 页脚对比度 ≥4.5 jian                          15.3:1
   PASS  AC-27 引文逐字对比度 ≥4.5 tian                        最差 13.1:1（修）
   PASS  AC-28 页脚对比度 ≥4.5 tian                          16.7:1
@@ -104,7 +104,7 @@ PASS 分镜表与 story.py 一致
   PASS  AC-30 水线上下有明度落差 shan                           71.8→37.5
   PASS  AC-31 主视觉不是纯色 shan                             std=51.8
   PASS  AC-32 右下角无工具水印残留 shan                          std=0.9 mean=24.9
-  PASS  AC-29 墨池平均亮度 ≤110 jian                         47.2
+  PASS  AC-29 墨池平均亮度 ≤110 jian                         48.0
   PASS  AC-30 水线上下有明度落差 jian                           68.6→41.5
   PASS  AC-31 主视觉不是纯色 jian                             std=45.2
   PASS  AC-32 右下角无工具水印残留 jian                          std=1.5 mean=29.8
@@ -112,8 +112,8 @@ PASS 分镜表与 story.py 一致
   PASS  AC-30 水线上下有明度落差 tian                           46.6→27.8
   PASS  AC-31 主视觉不是纯色 tian                             std=37.6
   PASS  AC-32 右下角无工具水印残留 tian                          std=4.8 mean=18.9
-  PASS  AC-33 三张墨池浓度随图而变                               34.0~47.2
-  PASS  AC-34 三张互不相同                                   d=38.9/41.8
+  PASS  AC-33 三张墨池浓度随图而变                               34.0~48.0
+  PASS  AC-34 三张互不相同                                   d=39.2/41.8
 == 7. 工程源文件（分层 SVG） ==
   PASS  AC-35 源文件存在 shan                               jianghuai-shan.svg
   PASS  AC-36 SVG 字数与版式一致 shan                         126/126
