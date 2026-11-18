@@ -93,19 +93,19 @@ PASS  AC-36 SVG 字数与版式一致 shan  126/126
 PASS  AC-37 SVG 里能读出完整引文 shan  
 PASS  AC-38 SVG 内嵌两套字体 shan  2
 PASS  AC-39 SVG 有层名（可编辑） shan  
-PASS  AC-40 SVG 内嵌底图 shan  3.0 MB
+PASS  AC-40 SVG 内嵌底图 shan  2.9 MB
 PASS  AC-35 源文件存在 jian  jianghuai-jian.svg
 PASS  AC-36 SVG 字数与版式一致 jian  106/106
 PASS  AC-37 SVG 里能读出完整引文 jian  
 PASS  AC-38 SVG 内嵌两套字体 jian  2
 PASS  AC-39 SVG 有层名（可编辑） jian  
-PASS  AC-40 SVG 内嵌底图 jian  2.9 MB
+PASS  AC-40 SVG 内嵌底图 jian  2.8 MB
 PASS  AC-35 源文件存在 tian  jianghuai-tian.svg
 PASS  AC-36 SVG 字数与版式一致 tian  133/133
 PASS  AC-37 SVG 里能读出完整引文 tian  
 PASS  AC-38 SVG 内嵌两套字体 tian  2
 PASS  AC-39 SVG 有层名（可编辑） tian  
-PASS  AC-40 SVG 内嵌底图 tian  3.8 MB
+PASS  AC-40 SVG 内嵌底图 tian  3.7 MB
 PASS  AC-41 字体 serif 缺字=0  缺 0 
 PASS  AC-42 字体许可随包 serif  
 PASS  AC-41 字体 brush 缺字=0  缺 0 

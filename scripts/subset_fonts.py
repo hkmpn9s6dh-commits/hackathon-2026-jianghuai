@@ -40,18 +40,27 @@ def charset():
     return "".join(sorted(s))
 
 
+def brush_charset():
+    """马善政只用于落款和印，按这两处取字 —— 它本来就没有 滃/畎 这类字。"""
+    s = set()
+    for p in S.POSTERS:
+        s |= set(p["title"]) | set(p["seal"])
+    return "".join(sorted(s))
+
+
 def main():
     from fontTools import subset
     from fontTools.ttLib import TTFont
 
     chars = charset()
-    print("需要 %d 个字" % len(chars))
+    print("需要 %d 个字（宋体）；马善政只用 %d 个字" % (len(chars), len(brush_charset())))
 
     if "--check" in sys.argv:
         for k, path in OUT.items():
             f = TTFont(path)
             cmap = f.getBestCmap()
-            miss = [c for c in chars if ord(c) not in cmap]
+            want = brush_charset() if k == "brush" else chars
+            miss = [c for c in want if ord(c) not in cmap]
             print("  %-6s %-46s 缺字 %d %s" % (k, os.path.basename(path), len(miss), "".join(miss)))
         return
 
@@ -64,7 +73,7 @@ def main():
         opts.drop_tables += ["DSIG"]
         font = subset.load_font(path, opts)
         sub = subset.Subsetter(options=opts)
-        sub.populate(text=chars)
+        sub.populate(text=brush_charset() if k == "brush" else chars)
         sub.subset(font)
         subset.save_font(font, OUT[k], opts)
         print("  %-6s %8.1f KB → %8.1f KB  %s" % (
